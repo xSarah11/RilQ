@@ -1,9 +1,22 @@
 # ReliQ | ريليك 🚀
 
+An interactive learning platform that helps students aged 14–18 explore the rovers that drove on the Moon and Mars.
+Students pick a planet, find rovers on an interactive map, inspect each rover in 3D, ask an AI chatbot questions, and finish a short mission.
+
 منصة تعليمية تفاعلية لطلاب ١٤–١٨ سنة، تعرّفهم على المركبات التي استكشفت القمر والمريخ.
-An interactive learning platform (ages 14–18) about the rovers that explored the Moon and Mars.
 
 **الرحلة:** اختيار الكوكب ← خريطة تفاعلية ← مركبة 3D + ٣ أجزاء رئيسية ← شات بوت ← مهمة قصيرة
+
+## 📸 Screenshots
+
+**Home: choose a planet**
+![Home page](screenshots/home.png)
+
+**Rover page: 3D model, key facts, and AI chatbot**
+![Rover page](screenshots/rover.png)
+
+**Mission: short decision-based quiz**
+![Mission page](screenshots/mission.png)
 
 ---
 
@@ -19,7 +32,7 @@ An interactive learning platform (ages 14–18) about the rovers that explored t
   ```
 
 ### ٢. افتح المشروع
-فك ضغط `reliq.zip`، ثم افتح المجلد `reliq` في VS Code
+نزّل المشروع من الزر الأخضر **Code ← Download ZIP** وفك الضغط، ثم افتح المجلد في VS Code
 (**File ← Open Folder**). افتح الطرفية من **Terminal ← New Terminal**.
 
 ### ٣. ثبّت المكتبات
