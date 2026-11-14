@@ -3,10 +3,13 @@
 import Link from "next/link";
 import { useLang } from "@/lib/i18n";
 import { planets } from "@/data/planets";
-import { getRoversByPlanet } from "@/data/rovers";
+import { getRoversByPlanet, rovers } from "@/data/rovers";
+import { dataSources } from "@/lib/nasa/sources";
+import ApodCard from "./ApodCard";
+import DataLab from "./DataLab";
 
 export default function HomeView() {
-  const { t, tx } = useLang();
+  const { t, tx, lang } = useLang();
 
   const steps = [
     { icon: "🪐", label: t("step1") },
@@ -26,6 +29,20 @@ export default function HomeView() {
           <span className="text-gradient">{t("heroTitle")}</span>
         </h1>
         <p className="mx-auto mt-5 max-w-2xl text-base text-white/70 sm:text-lg">{t("heroText")}</p>
+        <dl className="mx-auto mt-8 grid max-w-lg grid-cols-3 gap-3">
+          {[
+            { v: rovers.length, l: t("rovers") },
+            { v: planets.length, l: lang === "ar" ? "عالمان" : "worlds" },
+            { v: dataSources.length, l: lang === "ar" ? "مصادر ناسا" : "NASA sources" },
+          ].map((s) => (
+            <div key={s.l} className="glass flex flex-col-reverse rounded-2xl px-2 py-3">
+              <dt className="text-[11px] text-white/55 sm:text-xs">{s.l}</dt>
+              <dd className="text-2xl font-extrabold text-white sm:text-3xl" dir="ltr">
+                {s.v}
+              </dd>
+            </div>
+          ))}
+        </dl>
       </section>
 
       {/* Planet picker */}
@@ -40,7 +57,7 @@ export default function HomeView() {
               <Link
                 key={p.id}
                 href={`/explore/${p.id}`}
-                className="glass fade-up group relative overflow-hidden rounded-3xl p-6 transition hover:-translate-y-1 hover:border-white/25 sm:p-8"
+                className="glass card-hover fade-up group relative overflow-hidden rounded-3xl p-6 sm:p-8"
                 style={{ animationDelay: `${0.1 + i * 0.12}s` }}
               >
                 <div className="flex items-center gap-6">
@@ -74,6 +91,14 @@ export default function HomeView() {
         </div>
       </section>
 
+      {/* Live from NASA */}
+      <section aria-label="NASA APOD" className="mt-16">
+        <ApodCard />
+      </section>
+
+      {/* Interactive charts */}
+      <DataLab />
+
       {/* How it works */}
       <section className="mt-16">
         <h2 className="mb-6 text-center text-xl font-bold text-white/90">{t("howItWorks")}</h2>
@@ -86,6 +111,20 @@ export default function HomeView() {
             </li>
           ))}
         </ol>
+      </section>
+
+      {/* NASA data call-out */}
+      <section className="glass mt-10 flex flex-col items-center justify-between gap-4 rounded-3xl p-6 text-center sm:flex-row sm:text-start">
+        <div>
+          <div className="font-bold">🛰️ {t("dataTitle")}</div>
+          <p className="mt-1 text-sm text-white/60">{t("dataText")}</p>
+        </div>
+        <Link
+          href="/data"
+          className="shrink-0 rounded-xl border border-glow/40 bg-glow/10 px-5 py-2.5 text-sm font-bold text-glow transition hover:bg-glow/20"
+        >
+          {t("navData")} <span className="inline-block rtl:rotate-180">→</span>
+        </Link>
       </section>
     </div>
   );

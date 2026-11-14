@@ -6,6 +6,22 @@ export type Text = { ar: string; en: string };
 
 export type PlanetId = "moon" | "mars";
 
+/** A link to an official source (NASA / agency page or dataset). */
+export type SourceLink = { label: string; url: string };
+
+/** One NASA Trek WMTS map layer (equirectangular, EPSG:4326 tile grid). */
+export type MapLayer = {
+  id: string;
+  name: Text;
+  /** Instrument / mission that produced the mosaic */
+  instrument: Text;
+  /** Tile URL template ({z}/{y}/{x}). */
+  url: string;
+  maxNativeZoom: number;
+  /** Official dataset page */
+  source: SourceLink;
+};
+
 export type Planet = {
   id: PlanetId;
   name: Text;
@@ -13,9 +29,9 @@ export type Planet = {
   description: Text;
   /** CSS colors used for the planet sphere on the landing page */
   colors: [string, string, string];
-  /** Map tile sources, tried in order. If all fail, a stylized background is shown. */
-  tiles: string[];
-  maxNativeZoom: number;
+  /** NASA Trek map layers. The first one is the default; others appear in the layer switcher.
+   *  If a layer fails to load, the map falls back to the next one, then to a stylized background. */
+  layers: MapLayer[];
 };
 
 /** Visual 3D blueprint — the rover model is generated in code from this. */
@@ -67,6 +83,21 @@ export type Rover = {
   story: Text;
   achievements: Text[];
   stats: { label: Text; value: Text }[];
+  /** Mission status. "unknown" = no recent official update we could verify. */
+  status: "active" | "ended" | "unknown";
+  /** Last day of operations (ISO). null for active / unknown missions. */
+  endDate: string | null;
+  /** Numeric facts used by the interactive charts (Data Lab). null = not reliably known / still changing. */
+  numbers: {
+    massKg: number;
+    wheels: number;
+    /** Total distance driven (km) for finished missions. null for ongoing missions (changes daily). */
+    distanceKm: number | null;
+  };
+  /** Search terms for the NASA Image and Video Library (images-api.nasa.gov). */
+  nasaImageQuery: string;
+  /** Official sources for the facts on this page. */
+  sources: SourceLink[];
   parts: [RoverPart, RoverPart, RoverPart];
   mission: {
     title: Text;

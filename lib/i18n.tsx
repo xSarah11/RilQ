@@ -70,6 +70,104 @@ const ui = {
   loading3d: { ar: "جاري تحميل المجسم...", en: "Loading 3D model..." },
   footer: { ar: "مشروع تعليمي — البيانات من ناسا ووكالات الفضاء", en: "Educational project — data from NASA and space agencies" },
   notFound: { ar: "الصفحة غير موجودة", en: "Page not found" },
+
+  // Navigation
+  navMoon: { ar: "القمر", en: "Moon" },
+  navMars: { ar: "المريخ", en: "Mars" },
+  navData: { ar: "بيانات ناسا", en: "NASA Data" },
+  navLab: { ar: "مختبر البيانات", en: "Data Lab" },
+
+  // Map
+  mapLayers: { ar: "طبقات الخريطة", en: "Map layers" },
+  grid: { ar: "خطوط الطول والعرض", en: "Lat/Lon grid" },
+  resetView: { ar: "عرض الكوكب كاملًا", en: "Whole planet" },
+  close: { ar: "إغلاق", en: "Close" },
+  liveFromNasa: { ar: "متصل مباشرة بخادم NASA Trek", en: "Live from NASA Trek" },
+  sourceOffline: { ar: "خوادم ناسا غير متاحة الآن", en: "NASA servers unavailable" },
+  connecting: { ar: "جارٍ الاتصال بناسا…", en: "Connecting to NASA…" },
+  dataset: { ar: "مجموعة البيانات", en: "Dataset" },
+
+  // Mission status
+  statusActive: { ar: "تعمل الآن", en: "Active" },
+  statusEnded: { ar: "انتهت", en: "Ended" },
+  statusUnknown: { ar: "الحالة غير مؤكدة", en: "Status unconfirmed" },
+
+  // APOD
+  apodTitle: { ar: "صورة اليوم من ناسا", en: "NASA Picture of the Day" },
+  apodLoading: { ar: "جارٍ جلب صورة اليوم من ناسا…", en: "Fetching today's picture from NASA…" },
+  apodError: { ar: "تعذر الاتصال بخدمة APOD الآن. حاول لاحقًا.", en: "Couldn't reach NASA APOD right now. Try again later." },
+  apodVideo: { ar: "صورة اليوم مقطع فيديو — شاهده على موقع ناسا", en: "Today's APOD is a video — watch it on NASA's site" },
+  apodNote: { ar: "الشرح الأصلي بالإنجليزية من ناسا", en: "Original explanation by NASA" },
+  readMore: { ar: "اقرأ المزيد", en: "Read more" },
+  showLess: { ar: "عرض أقل", en: "Show less" },
+  viewOnNasa: { ar: "عرض على موقع ناسا", en: "View on NASA" },
+  retryShort: { ar: "إعادة المحاولة", en: "Retry" },
+  updated: { ar: "آخر تحديث", en: "Updated" },
+  cachedCopy: { ar: "نسخة محفوظة (ناسا لا تستجيب الآن)", en: "Saved copy (NASA not responding)" },
+  demoKeyNote: {
+    ar: "يعمل بمفتاح DEMO_KEY العام (حد منخفض). أضف NASA_API_KEY على الخادم.",
+    en: "Running on the public DEMO_KEY (low limit). Add NASA_API_KEY on the server.",
+  },
+  source: { ar: "المصدر", en: "Source" },
+
+  // Data Lab
+  labTitle: { ar: "مختبر البيانات", en: "Data Lab" },
+  labText: {
+    ar: "قارن المركبات بالأرقام. اضغط على أي عمود لتفتح المركبة.",
+    en: "Compare the rovers by the numbers. Tap any bar to open that rover.",
+  },
+  metricMass: { ar: "الكتلة (كغ)", en: "Mass (kg)" },
+  metricDistance: { ar: "المسافة المقطوعة (كم)", en: "Distance driven (km)" },
+  metricDays: { ar: "مدة العمل على السطح (يوم)", en: "Days on the surface" },
+  metricTimeline: { ar: "الخط الزمني", en: "Timeline" },
+  logScale: { ar: "مقياس لوغاريتمي", en: "Log scale" },
+  distanceNote: {
+    ar: "تُعرض المسافة للمهمات المنتهية فقط؛ مسافة المركبات العاملة تتغير يوميًا (راجع خرائط ناسا المباشرة).",
+    en: "Distance is shown for finished missions only — active rovers' totals change daily (see NASA's live maps).",
+  },
+  daysNote: {
+    ar: "للمركبات العاملة تُحسب الأيام حتى اليوم. مدة أبولو تشمل المهمات ١٥ إلى ١٧.",
+    en: "Active rovers are counted up to today. The Apollo LRV span covers Apollo 15–17.",
+  },
+  today: { ar: "اليوم", en: "Today" },
+  days: { ar: "يوم", en: "days" },
+  chartSources: { ar: "مصادر الأرقام موجودة في صفحة كل مركبة", en: "Each rover page lists the official sources for these numbers" },
+
+  // Rover page — NASA gallery & sources
+  galleryTitle: { ar: "صور من أرشيف ناسا", en: "From the NASA archive" },
+  galleryLoading: { ar: "جارٍ البحث في مكتبة صور ناسا…", en: "Searching the NASA Image Library…" },
+  galleryEmpty: { ar: "لم نجد صورًا لهذه المركبة في مكتبة ناسا.", en: "No images of this rover found in the NASA library." },
+  galleryError: { ar: "تعذر الاتصال بمكتبة صور ناسا الآن.", en: "Couldn't reach the NASA Image Library right now." },
+  galleryHint: { ar: "صور رسمية تُجلب مباشرة من images.nasa.gov", en: "Official images fetched live from images.nasa.gov" },
+  sourcesTitle: { ar: "المصادر الرسمية", en: "Official sources" },
+
+  // Data page
+  dataTitle: { ar: "بيانات ناسا في ريليك", en: "NASA Data in ReliQ" },
+  dataText: {
+    ar: "كل مصدر بيانات يستخدمه الموقع، من أين يأتي، وأين يظهر — مع فحص اتصال مباشر.",
+    en: "Every data source the site uses, where it comes from and where it appears — with a live connection check.",
+  },
+  checkNow: { ar: "افحص الاتصال الآن", en: "Check connection now" },
+  checking: { ar: "جارٍ الفحص…", en: "Checking…" },
+  connected: { ar: "متصل", en: "Connected" },
+  notConnected: { ar: "غير متصل", en: "Not connected" },
+  notChecked: { ar: "لم يُفحص", en: "Not checked" },
+  needsKey: { ar: "يحتاج مفتاح API", en: "Needs API key" },
+  noKey: { ar: "بدون مفتاح", en: "No key needed" },
+  usedIn: { ar: "أين يظهر", en: "Used in" },
+  updatesEvery: { ar: "تحديث المصدر", en: "Source updates" },
+  cachedFor: { ar: "التخزين المؤقت", en: "Cached" },
+  docs: { ar: "التوثيق", en: "Docs" },
+  flowTitle: { ar: "كيف تنتقل البيانات من ناسا إليك؟", en: "How data travels from NASA to you" },
+  flow1: { ar: "خوادم ناسا", en: "NASA servers" },
+  flow2: { ar: "خادم ريليك (يحفظ المفتاح ويخزن مؤقتًا)", en: "ReliQ server (holds the key, caches)" },
+  flow3: { ar: "متصفحك", en: "Your browser" },
+  flowTiles: { ar: "مربعات الخريطة تُحمَّل مباشرة من NASA Trek إلى المتصفح (لا تحتاج مفتاحًا).", en: "Map tiles load straight from NASA Trek into the browser (no key needed)." },
+  archivedNote: {
+    ar: "ملاحظة: واجهة Mars Rover Photos القديمة أُرشفت رسميًا في api.nasa.gov، لذلك لم نعتمد عليها.",
+    en: "Note: the old Mars Rover Photos API has been officially archived on api.nasa.gov, so ReliQ does not depend on it.",
+  },
+  ms: { ar: "مللي ثانية", en: "ms" },
 } satisfies Record<string, Text>;
 
 export type UIKey = keyof typeof ui;

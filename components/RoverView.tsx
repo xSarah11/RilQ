@@ -8,9 +8,14 @@ import { getRover } from "@/data/rovers";
 import { getPlanet } from "@/data/planets";
 import { loadProgress, markPartSeen } from "@/lib/progress";
 import ChatBot from "./ChatBot";
+import NasaGallery from "./NasaGallery";
+import StatusChip from "./StatusChip";
 import type { PartMesh } from "@/data/types";
 
-const RoverViewer = dynamic(() => import("./RoverViewer"), { ssr: false });
+const RoverViewer = dynamic(() => import("./RoverViewer"), {
+  ssr: false,
+  loading: () => <div className="skeleton h-full w-full" />,
+});
 
 export default function RoverView({ roverId }: { roverId: string }) {
   const { t, tx, lang } = useLang();
@@ -107,6 +112,7 @@ export default function RoverView({ roverId }: { roverId: string }) {
           <div className="flex items-center gap-2 text-sm text-white/60">
             <span>{rover.flag}</span>
             <span>{tx(rover.agency)}</span>
+            <StatusChip status={rover.status} />
           </div>
           <h1 className="mt-1 text-4xl font-extrabold" style={{ color: rover.accent }}>
             {tx(rover.name)}
@@ -143,6 +149,17 @@ export default function RoverView({ roverId }: { roverId: string }) {
             ))}
           </ul>
 
+          <h2 className="mt-6 text-lg font-bold">🔗 {t("sourcesTitle")}</h2>
+          <ul className="mt-2 space-y-1.5 text-sm">
+            {rover.sources.map((s) => (
+              <li key={s.url}>
+                <a href={s.url} target="_blank" rel="noreferrer" className="text-glow hover:underline" dir="ltr">
+                  {s.label} ↗
+                </a>
+              </li>
+            ))}
+          </ul>
+
           <div className="glass mt-6 rounded-3xl p-5 text-center">
             <div className="text-3xl">🎯</div>
             <h3 className="mt-1 text-xl font-bold">{tx(rover.mission.title)}</h3>
@@ -156,6 +173,8 @@ export default function RoverView({ roverId }: { roverId: string }) {
           </div>
         </section>
       </div>
+
+      <NasaGallery roverId={rover.id} accent={rover.accent} />
 
       <ChatBot roverId={rover.id} roverName={tx(rover.name)} />
     </div>

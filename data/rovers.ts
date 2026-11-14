@@ -37,6 +37,13 @@ export const rovers: Rover[] = [
       { label: { ar: "المسافة", en: "Distance" }, value: { ar: "≈ ١٠.٥ كم", en: "≈ 10.5 km" } },
       { label: { ar: "مدة العمل", en: "Worked for" }, value: { ar: "≈ ١٠ أشهر", en: "≈ 10 months" } },
     ],
+    status: "ended",
+    endDate: "1971-09-14",
+    numbers: { massKg: 756, wheels: 8, distanceKm: 10.5 },
+    nasaImageQuery: "Lunokhod 1",
+    sources: [
+      { label: "NASA NSSDCA — Luna 17 / Lunokhod 1", url: "https://nssdc.gsfc.nasa.gov/nmc/spacecraft/display.action?id=1970-095A" },
+    ],
     parts: [
       {
         id: "lid",
@@ -168,6 +175,14 @@ export const rovers: Rover[] = [
       { label: { ar: "السرعة", en: "Top speed" }, value: { ar: "≈ ١٣ كم/س", en: "≈ 13 km/h" } },
       { label: { ar: "عدد المركبات", en: "Rovers used" }, value: { ar: "٣", en: "3" } },
     ],
+    status: "ended",
+    endDate: "1972-12-14",
+    numbers: { massKg: 210, wheels: 4, distanceKm: 35.7 },
+    nasaImageQuery: "Lunar Roving Vehicle",
+    sources: [
+      { label: "NASA — Apollo 15 mission", url: "https://www.nasa.gov/mission/apollo-15/" },
+      { label: "NASA NSSDCA — Apollo 17 LRV", url: "https://nssdc.gsfc.nasa.gov/nmc/spacecraft/display.action?id=1972-096C" },
+    ],
     parts: [
       {
         id: "wheels",
@@ -298,6 +313,13 @@ export const rovers: Rover[] = [
       { label: { ar: "العجلات", en: "Wheels" }, value: { ar: "٦", en: "6" } },
       { label: { ar: "الطاقة", en: "Power" }, value: { ar: "شمسية", en: "Solar" } },
       { label: { ar: "الموقع", en: "Location" }, value: { ar: "الجانب البعيد", en: "Far side" } },
+    ],
+    status: "unknown",
+    endDate: null,
+    numbers: { massKg: 140, wheels: 6, distanceKm: null },
+    nasaImageQuery: "Chang'e 4",
+    sources: [
+      { label: "NASA NSSDCA — Chang'e 4", url: "https://nssdc.gsfc.nasa.gov/nmc/spacecraft/display.action?id=2018-103A" },
     ],
     parts: [
       {
@@ -432,6 +454,14 @@ export const rovers: Rover[] = [
       { label: { ar: "المخطط", en: "Planned" }, value: { ar: "٧ أيام مريخية", en: "7 sols" } },
       { label: { ar: "الفعلي", en: "Actual" }, value: { ar: "٨٣ يومًا مريخيًا", en: "83 sols" } },
     ],
+    status: "ended",
+    endDate: "1997-09-27",
+    numbers: { massKg: 10.6, wheels: 6, distanceKm: 0.1 },
+    nasaImageQuery: "Sojourner rover Pathfinder",
+    sources: [
+      { label: "NASA Science — Mars Pathfinder", url: "https://science.nasa.gov/mission/mars-pathfinder/" },
+      { label: "NASA NSSDCA — Mars Pathfinder", url: "https://nssdc.gsfc.nasa.gov/nmc/spacecraft/display.action?id=1996-068A" },
+    ],
     parts: [
       {
         id: "solar",
@@ -562,6 +592,13 @@ export const rovers: Rover[] = [
       { label: { ar: "المسافة", en: "Distance" }, value: { ar: "٤٥.١٦ كم", en: "45.16 km" } },
       { label: { ar: "المخطط", en: "Planned" }, value: { ar: "٩٠ يومًا مريخيًا", en: "90 sols" } },
       { label: { ar: "الفعلي", en: "Actual" }, value: { ar: "≈ ١٥ سنة", en: "≈ 15 years" } },
+    ],
+    status: "ended",
+    endDate: "2018-06-10",
+    numbers: { massKg: 185, wheels: 6, distanceKm: 45.16 },
+    nasaImageQuery: "Opportunity rover",
+    sources: [
+      { label: "NASA Science — Opportunity (MER-B)", url: "https://science.nasa.gov/mission/mer-opportunity/" },
     ],
     parts: [
       {
@@ -694,6 +731,14 @@ export const rovers: Rover[] = [
       { label: { ar: "الطاقة", en: "Power" }, value: { ar: "نووية", en: "Nuclear" } },
       { label: { ar: "الحجم", en: "Size" }, value: { ar: "سيارة صغيرة", en: "Small car" } },
     ],
+    status: "active",
+    endDate: null,
+    numbers: { massKg: 899, wheels: 6, distanceKm: null },
+    nasaImageQuery: "Curiosity rover",
+    sources: [
+      { label: "NASA Science — Curiosity (MSL)", url: "https://science.nasa.gov/mission/msl-curiosity/" },
+      { label: "NASA — Where is Curiosity? (live map)", url: "https://science.nasa.gov/mission/msl-curiosity/location-map/" },
+    ],
     parts: [
       {
         id: "rtg",
@@ -788,6 +833,145 @@ export const rovers: Rover[] = [
           explanation: {
             ar: "المثقاب يجمع مسحوق الصخر ويوصله لمختبرات المركبة التي تحلل كيمياءه بدقة.",
             en: "The drill collects rock powder and delivers it to the onboard labs that analyze its chemistry in detail.",
+          },
+        },
+      ],
+    },
+  },
+  {
+    id: "perseverance",
+    planet: "mars",
+    name: { ar: "بيرسيفيرانس", en: "Perseverance" },
+    agency: { ar: "ناسا", en: "NASA" },
+    country: { ar: "الولايات المتحدة", en: "United States" },
+    flag: "🇺🇸",
+    landingDate: "2021-02-18",
+    landingSite: { ar: "فوهة جيزيرو", en: "Jezero Crater" },
+    lat: 18.44,
+    lng: 77.45,
+    model: "msl",
+    accent: "#7dd3fc",
+    summary: {
+      ar: "تبحث عن آثار حياة قديمة وتجمع عينات صخرية لإعادتها إلى الأرض مستقبلًا.",
+      en: "Searching for signs of ancient life and collecting rock samples for a future return to Earth.",
+    },
+    story: {
+      ar: "هبطت في فبراير ٢٠٢١ داخل فوهة جيزيرو، وهي بحيرة قديمة كان يصب فيها نهر قبل مليارات السنين. حملت معها مروحية صغيرة اسمها إنجينويتي حققت أول طيران بمحرك على كوكب آخر، وجهازًا اسمه موكسي صنع الأكسجين من هواء المريخ. مهمتها الأهم: حفر الصخور وحفظ عينات في أنابيب محكمة لتعيدها مهمات قادمة إلى الأرض.",
+      en: "It landed in February 2021 in Jezero Crater, an ancient lake once fed by a river billions of years ago. It carried a small helicopter, Ingenuity, which made the first powered flight on another planet, and an experiment called MOXIE that made oxygen from Martian air. Its biggest job: drilling rocks and sealing samples in tubes so future missions can bring them back to Earth.",
+    },
+    achievements: [
+      { ar: "حملت إنجينويتي: أول طيران بمحرك على كوكب آخر (٢٠٢١)", en: "Carried Ingenuity: first powered flight on another planet (2021)" },
+      { ar: "صنعت الأكسجين من ثاني أكسيد الكربون في جو المريخ (تجربة موكسي)", en: "Made oxygen from Martian carbon dioxide (MOXIE experiment)" },
+      { ar: "تجمع عينات صخرية محفوظة لمهمة إعادة العينات إلى الأرض", en: "Collects sealed rock samples for a future sample-return mission" },
+    ],
+    stats: [
+      { label: { ar: "الكتلة", en: "Mass" }, value: { ar: "١٠٢٥ كغ", en: "1,025 kg" } },
+      { label: { ar: "العجلات", en: "Wheels" }, value: { ar: "٦", en: "6" } },
+      { label: { ar: "الطاقة", en: "Power" }, value: { ar: "نووية", en: "Nuclear" } },
+      { label: { ar: "الكاميرات", en: "Cameras" }, value: { ar: "٢٣ كاميرا", en: "23 cameras" } },
+    ],
+    status: "active",
+    endDate: null,
+    numbers: { massKg: 1025, wheels: 6, distanceKm: null },
+    nasaImageQuery: "Perseverance rover",
+    sources: [
+      { label: "NASA Science — Mars 2020 Perseverance", url: "https://science.nasa.gov/mission/mars-2020-perseverance/" },
+      { label: "NASA — Perseverance raw images", url: "https://science.nasa.gov/mission/mars-2020-perseverance/raw-images/" },
+    ],
+    parts: [
+      {
+        id: "rtg",
+        mesh: "rtg",
+        icon: "⚛️",
+        name: { ar: "مولد الطاقة النووي", en: "Nuclear Power Generator" },
+        role: {
+          ar: "مولد يحول حرارة البلوتونيوم إلى كهرباء تشحن بطاريات المركبة ليلًا ونهارًا.",
+          en: "A generator that turns heat from plutonium into electricity, charging the rover's batteries day and night.",
+        },
+        funFact: {
+          ar: "هو نفس نوع المولد في كيوريوسيتي، لذلك لا تخاف المركبة من عواصف الغبار.",
+          en: "It's the same type of generator as Curiosity's, so dust storms don't stop the rover.",
+        },
+      },
+      {
+        id: "mast",
+        mesh: "mast",
+        icon: "📷",
+        name: { ar: "كاميرات Mastcam-Z", en: "Mastcam-Z Cameras" },
+        role: {
+          ar: "عينان بكاميرات قابلة للتقريب (زووم) في رأس السارية، تصوّر بالألوان وبثلاثة أبعاد لتختار الصخور المهمة.",
+          en: "Zoomable 'eyes' on the mast that take color and 3D images, helping the team choose which rocks matter.",
+        },
+        funFact: {
+          ar: "تحمل المركبة ٢٣ كاميرا، وهو أكبر عدد أُرسل إلى المريخ في مهمة واحدة.",
+          en: "The rover carries 23 cameras — the most ever sent to Mars on one mission.",
+        },
+      },
+      {
+        id: "arm",
+        mesh: "arm",
+        icon: "🧪",
+        name: { ar: "الذراع وأنابيب العينات", en: "Arm & Sample Tubes" },
+        role: {
+          ar: "ذراع طولها نحو مترين تحفر لبًّا صخريًا بحجم قطعة الطباشير، ثم يُختم داخل أنبوب معدني نظيف.",
+          en: "A ~2 m arm that drills chalk-sized rock cores, which are then sealed inside ultra-clean metal tubes.",
+        },
+        funFact: {
+          ar: "الأنابيب أنظف من أي شيء أُرسل إلى الفضاء، حتى لا تختلط عينات المريخ بجراثيم من الأرض.",
+          en: "The tubes are among the cleanest objects ever sent to space, so Earth germs can't mix with Mars samples.",
+        },
+      },
+    ],
+    mission: {
+      title: { ar: "مهمة: صيّاد العينات", en: "Mission: Sample Hunter" },
+      intro: {
+        ar: "أنت عالم في فريق بيرسيفيرانس. اختر بذكاء ما تحفظه للأرض.",
+        en: "You are a scientist on the Perseverance team. Choose wisely what to save for Earth.",
+      },
+      steps: [
+        {
+          situation: {
+            ar: "لماذا اختار العلماء فوهة جيزيرو للهبوط؟",
+            en: "Why did scientists choose Jezero Crater as the landing site?",
+          },
+          options: [
+            { text: { ar: "لأنها أسخن مكان في المريخ", en: "Because it's the warmest place on Mars" }, correct: false },
+            { text: { ar: "لأنها كانت بحيرة ودلتا نهر قديمة", en: "Because it was once a lake with a river delta" }, correct: true },
+            { text: { ar: "لأنها قريبة من القطب", en: "Because it's close to the pole" }, correct: false },
+          ],
+          explanation: {
+            ar: "رواسب البحيرات والدلتا على الأرض تحفظ آثار الحياة جيدًا، لذلك هي أفضل مكان للبحث.",
+            en: "On Earth, lake and delta sediments preserve signs of life well — so they're the best place to search.",
+          },
+        },
+        {
+          situation: {
+            ar: "عندك عدد محدود من الأنابيب. أي عينة تحفظ؟",
+            en: "You have a limited number of tubes. Which sample do you keep?",
+          },
+          options: [
+            { text: { ar: "صخرة رسوبية تشكلت في الماء", en: "A sedimentary rock formed in water" }, correct: true },
+            { text: { ar: "غبار من على سطح المركبة", en: "Dust from the rover's deck" }, correct: false },
+            { text: { ar: "أي صخرة قريبة لتوفير الوقت", en: "Any nearby rock to save time" }, correct: false },
+          ],
+          explanation: {
+            ar: "الصخور التي تشكلت في الماء هي الأكثر احتمالًا لحفظ آثار حياة مجهرية قديمة.",
+            en: "Rocks that formed in water are the most likely to preserve traces of ancient microbial life.",
+          },
+        },
+        {
+          situation: {
+            ar: "تريد استكشاف مكان أمام المركبة من الجو قبل القيادة إليه. ماذا تستخدم؟",
+            en: "You want to scout the area ahead from the air before driving there. What do you use?",
+          },
+          options: [
+            { text: { ar: "المروحية إنجينويتي", en: "The Ingenuity helicopter" }, correct: true },
+            { text: { ar: "المولد النووي", en: "The nuclear generator" }, correct: false },
+            { text: { ar: "أنابيب العينات", en: "The sample tubes" }, correct: false },
+          ],
+          explanation: {
+            ar: "إنجينويتي طارت أمام المركبة وصورت الطريق، فأثبتت أن الطيران يساعد في التخطيط لمسار القيادة.",
+            en: "Ingenuity flew ahead and photographed the terrain, proving that flight can help plan driving routes.",
           },
         },
       ],
