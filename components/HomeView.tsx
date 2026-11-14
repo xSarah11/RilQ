@@ -74,6 +74,20 @@ export default function HomeView() {
         </div>
       </section>
 
+      {/* NASA data */}
+      <section className="mt-12">
+        <Link href="/data" className="glass group flex flex-col items-start gap-4 rounded-3xl p-6 transition hover:border-white/25 sm:flex-row sm:items-center sm:p-8">
+          <div className="text-4xl">🛰️</div>
+          <div className="flex-1">
+            <h2 className="text-xl font-bold">{t("homeDataTitle")}</h2>
+            <p className="mt-1 text-sm text-white/65">{t("homeDataText")}</p>
+          </div>
+          <span className="shrink-0 rounded-xl bg-glow px-4 py-2 text-sm font-bold text-space-950 transition group-hover:brightness-110">
+            {t("openDataHub")} <span className="inline-block rtl:rotate-180">→</span>
+          </span>
+        </Link>
+      </section>
+
       {/* How it works */}
       <section className="mt-16">
         <h2 className="mb-6 text-center text-xl font-bold text-white/90">{t("howItWorks")}</h2>

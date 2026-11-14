@@ -1,30 +1,54 @@
 "use client";
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { planets } from "@/data/planets";
 import { useLang } from "@/lib/i18n";
 
 export default function Header() {
-  const { lang, toggle, t } = useLang();
+  const { lang, toggle, t, tx } = useLang();
+  const path = usePathname();
+  const links = [
+    ...planets.map((p) => ({ href: `/explore/${p.id}`, label: tx(p.name) })),
+    { href: "/data", label: t("dataHub") },
+  ];
 
   return (
     <header className="sticky top-0 z-[1000] border-b border-white/10 bg-space-950/70 backdrop-blur-lg">
-      <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4">
+      <div className="mx-auto flex h-16 max-w-6xl items-center justify-between gap-2 px-3 sm:px-4">
         <Link href="/" className="group flex items-center gap-2" aria-label={t("home")}>
           <Logo />
-          <div className="leading-tight">
+          <div className="hidden leading-tight min-[480px]:block">
             <div className="text-lg font-bold tracking-wide" dir="ltr">
               Reli<span className="text-glow">Q</span>
             </div>
-            <div className="hidden text-[11px] text-white/50 sm:block">{t("brandTagline")}</div>
+            <div className="hidden text-[11px] text-white/50 lg:block">{t("brandTagline")}</div>
           </div>
         </Link>
 
+        <nav aria-label={t("nav")} className="flex items-center gap-1 text-sm">
+          {links.map((l) => {
+            const on = path === l.href;
+            return (
+              <Link
+                key={l.href}
+                href={l.href}
+                aria-current={on ? "page" : undefined}
+                className={`rounded-full px-2.5 py-1.5 transition sm:px-3 ${on ? "bg-white/10 text-white" : "text-white/60 hover:text-white"}`}
+              >
+                {l.label}
+              </Link>
+            );
+          })}
+        </nav>
+
         <button
           onClick={toggle}
-          className="rounded-full border border-white/15 bg-white/5 px-4 py-1.5 text-sm font-semibold transition hover:border-glow/60 hover:bg-glow/10"
+          className="shrink-0 rounded-full border border-white/15 bg-white/5 px-3 py-1.5 text-sm font-semibold transition hover:border-glow/60 hover:bg-glow/10"
           aria-label="Switch language"
         >
-          {lang === "ar" ? "English" : "العربية"}
+          <span className="sm:hidden">{lang === "ar" ? "EN" : "ع"}</span>
+          <span className="hidden sm:inline">{lang === "ar" ? "English" : "العربية"}</span>
         </button>
       </div>
     </header>

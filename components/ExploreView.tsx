@@ -2,7 +2,7 @@
 
 import dynamic from "next/dynamic";
 import Link from "next/link";
-import { useCallback, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { formatDate, useLang } from "@/lib/i18n";
 import { getPlanet } from "@/data/planets";
 import { getRoversByPlanet } from "@/data/rovers";
@@ -21,7 +21,6 @@ export default function ExploreView({ planetId }: { planetId: PlanetId }) {
   const rovers = getRoversByPlanet(planetId);
 
   const [selectedId, setSelectedId] = useState<string | null>(null);
-  const [fallback, setFallback] = useState(false);
   const [progress, setProgress] = useState<Progress | null>(null);
 
   useEffect(() => {
@@ -29,7 +28,6 @@ export default function ExploreView({ planetId }: { planetId: PlanetId }) {
     setProgress(loadProgress());
   }, []);
 
-  const onFallback = useCallback((f: boolean) => setFallback(f), []);
   const selected = rovers.find((r) => r.id === selectedId);
 
   return (
@@ -48,24 +46,17 @@ export default function ExploreView({ planetId }: { planetId: PlanetId }) {
 
       <div className="grid gap-4 lg:grid-cols-[1fr_320px]">
         {/* Map */}
-        <div className={`glass relative h-[58vh] overflow-hidden rounded-3xl lg:h-[68vh] ${fallback ? `map-fallback-${planet.id}` : ""}`}>
+        <div className="glass relative h-[60vh] min-h-[360px] overflow-hidden rounded-3xl lg:h-[70vh]">
           <PlanetMap
             planet={planet}
             rovers={rovers}
             selectedId={selectedId}
             onSelect={setSelectedId}
             lang={lang}
-            onFallback={onFallback}
           />
 
-          {fallback && (
-            <div className="absolute top-3 left-1/2 z-[500] -translate-x-1/2 rounded-full bg-black/60 px-3 py-1 text-xs text-white/80">
-              {t("mapFallback")}
-            </div>
-          )}
-
           {selected && (
-            <div className="fade-up absolute inset-x-3 bottom-3 z-[500] rounded-2xl border border-white/15 bg-space-900/95 shadow-xl p-4 sm:inset-x-auto sm:start-3 sm:w-80">
+            <div className="fade-up absolute inset-x-3 bottom-20 z-[550] sm:bottom-8 rounded-2xl border border-white/15 bg-space-900/95 shadow-xl p-4 sm:inset-x-auto sm:right-3 sm:w-80">
               <button
                 onClick={() => setSelectedId(null)}
                 className="absolute end-3 top-2 text-white/50 hover:text-white"

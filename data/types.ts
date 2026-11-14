@@ -13,9 +13,22 @@ export type Planet = {
   description: Text;
   /** CSS colors used for the planet sphere on the landing page */
   colors: [string, string, string];
+  /** Mean radius, used for the map scale bar and distances */
+  radiusKm: number;
   /** Map tile sources, tried in order. If all fail, a stylized background is shown. */
-  tiles: string[];
+  /** NASA Trek map layers (first = default). */
+  layers: MapLayer[];
+};
+
+export type MapLayer = {
+  id: string;
+  name: Text;
+  /** Tile URL template, {z}/{y}/{x} as served by NASA Trek WMTS */
+  url: string;
   maxNativeZoom: number;
+  /** id in lib/nasa/sources.ts, shown as the layer's credit */
+  sourceId: string;
+  attribution: string;
 };
 
 /** Visual 3D blueprint — the rover model is generated in code from this. */
@@ -68,6 +81,12 @@ export type Rover = {
   achievements: Text[];
   stats: { label: Text; value: Text }[];
   parts: [RoverPart, RoverPart, RoverPart];
+  /** Mass in kg, used by the comparison chart (same value as in stats) */
+  massKg: number;
+  /** Search words for the NASA Image and Video Library */
+  nasaImagesQuery: string;
+  /** Live traverse from NASA (only Perseverance today) */
+  liveTraverse?: "m20";
   mission: {
     title: Text;
     intro: Text;

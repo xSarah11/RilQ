@@ -176,3 +176,30 @@ body {
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation: none !important; transition: none !important; }
 }
+
+/* Selected rover marker */
+.rover-marker.is-active .dot {
+  transform: scale(1.35);
+}
+.rover-marker .dot {
+  transition: transform 0.2s ease;
+}
+
+/* Leaflet tooltips in the dark theme */
+.leaflet-tooltip {
+  background: #12162e;
+  color: #e8ecff;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  font-family: inherit;
+}
+.leaflet-tooltip-top:before {
+  border-top-color: #12162e;
+}
+
+/* Visible keyboard focus everywhere */
+:focus-visible {
+  outline: 2px solid #5ee7ff;
+  outline-offset: 2px;
+  border-radius: 6px;
+}

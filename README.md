@@ -18,6 +18,20 @@ Students pick a planet, find rovers on an interactive map, inspect each rover in
 **Mission: short decision-based quiz**
 ![Mission page](screenshots/mission.png)
 
+## 🛰️ NASA open data | بيانات ناسا المفتوحة
+
+| Dataset | Source | Used for | API key |
+| --- | --- | --- | --- |
+| LRO WAC Global Mosaic (Moon Trek WMTS) | NASA Solar System Treks | Moon map | No |
+| Viking MDIM 2.1 Colour Mosaic (Mars Trek WMTS) | NASA Solar System Treks | Mars map | No |
+| MGS MOLA Colour Shaded Relief (Mars Trek WMTS) | NASA Solar System Treks | Mars elevation layer | No |
+| NASA Image and Video Library API | images-api.nasa.gov | Official photos on every rover page | No |
+| Mars 2020 traverse + waypoints (MMGIS GeoJSON) | NASA / JPL | Perseverance's real path, latest sol, distance | No |
+
+- NASA calls go through the site's own server routes (`/api/nasa/images`, `/api/nasa/traverse`) with timeouts, caching and error handling.
+- **Data Hub** page (`/data`) runs a live connection check on every source (`/api/nasa/status`). "Live from NASA" badges only appear after a successful response.
+- The Mars Rover Photos API is **not** used: NASA archived it.
+
 ---
 
 ## ▶️ التشغيل على Windows

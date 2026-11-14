@@ -17,6 +17,8 @@ export const rovers: Rover[] = [
     lat: 38.24,
     lng: -35.0,
     model: "lunokhod",
+    massKg: 756,
+    nasaImagesQuery: "Lunokhod",
     accent: "#e4c27a",
     summary: {
       ar: "أول مركبة آلية تسير على سطح عالم آخر.",
@@ -148,6 +150,8 @@ export const rovers: Rover[] = [
     lat: 26.13,
     lng: 3.63,
     model: "lrv",
+    massKg: 210,
+    nasaImagesQuery: "Lunar Roving Vehicle",
     accent: "#7ab8ff",
     summary: {
       ar: "سيارة كهربائية قادها رواد الفضاء على سطح القمر.",
@@ -279,6 +283,8 @@ export const rovers: Rover[] = [
     lat: -45.44,
     lng: 177.59,
     model: "yutu",
+    massKg: 140,
+    nasaImagesQuery: "Chang'e 4",
     accent: "#ff8a8a",
     summary: {
       ar: "أول مركبة تسير على الجانب البعيد من القمر.",
@@ -412,6 +418,8 @@ export const rovers: Rover[] = [
     lat: 19.13,
     lng: -33.22,
     model: "sojourner",
+    massKg: 11,
+    nasaImagesQuery: "Sojourner rover",
     accent: "#ffd27a",
     summary: {
       ar: "أول مركبة بعجلات على المريخ — بحجم فرن الميكروويف.",
@@ -543,6 +551,8 @@ export const rovers: Rover[] = [
     lat: -1.95,
     lng: -5.53,
     model: "mer",
+    massKg: 185,
+    nasaImagesQuery: "Opportunity rover",
     accent: "#9fe3b0",
     summary: {
       ar: "صُممت لـ ٩٠ يومًا فعملت قرابة ١٥ سنة!",
@@ -674,6 +684,8 @@ export const rovers: Rover[] = [
     lat: -4.59,
     lng: 137.44,
     model: "msl",
+    massKg: 899,
+    nasaImagesQuery: "Curiosity rover",
     accent: "#ffb07a",
     summary: {
       ar: "مختبر علمي بحجم سيارة، يعمل بالطاقة النووية.",
@@ -788,6 +800,140 @@ export const rovers: Rover[] = [
           explanation: {
             ar: "المثقاب يجمع مسحوق الصخر ويوصله لمختبرات المركبة التي تحلل كيمياءه بدقة.",
             en: "The drill collects rock powder and delivers it to the onboard labs that analyze its chemistry in detail.",
+          },
+        },
+      ],
+    },
+  },
+  {
+    id: "perseverance",
+    planet: "mars",
+    name: { ar: "برسيفيرانس", en: "Perseverance" },
+    agency: { ar: "ناسا", en: "NASA" },
+    country: { ar: "الولايات المتحدة", en: "United States" },
+    flag: "🇺🇸",
+    landingDate: "2021-02-18",
+    landingSite: { ar: "فوهة جيزيرو", en: "Jezero Crater" },
+    lat: 18.4447,
+    lng: 77.4508,
+    model: "msl",
+    massKg: 1025,
+    nasaImagesQuery: "Perseverance rover",
+    liveTraverse: "m20",
+    accent: "#b79bff",
+    summary: {
+      ar: "أثقل مركبة على المريخ، تجمع عينات صخور ليعيدها البشر يومًا ما إلى الأرض.",
+      en: "The heaviest rover on Mars, collecting rock samples for a future return to Earth.",
+    },
+    story: {
+      ar: "هبطت في فوهة جيزيرو، وهي بحيرة قديمة كان يصب فيها نهر. تبحث عن آثار حياة ميكروبية قديمة، وتحفظ عينات صخور في أنابيب محكمة. حملت معها المروحية Ingenuity، أول طائرة تطير بمحرك على كوكب آخر.",
+      en: "It landed in Jezero Crater, an ancient lake once fed by a river. It searches for signs of ancient microbial life and seals rock samples in tubes. It carried the Ingenuity helicopter — the first aircraft to make a powered flight on another planet.",
+    },
+    achievements: [
+      { ar: "أوصلت Ingenuity التي نفذت ٧٢ رحلة طيران حتى يناير ٢٠٢٤", en: "Delivered Ingenuity, which made 72 flights until January 2024" },
+      { ar: "تجربة MOXIE أنتجت نحو ٥ غرامات أكسجين من هواء المريخ (أبريل ٢٠٢١)", en: "Its MOXIE experiment made about 5 g of oxygen from Mars air (April 2021)" },
+      { ar: "وجدت في ٢٠٢٤ صخرة \"شيافا فولز\" التي قد تحمل علامات حياة قديمة", en: "In 2024 it found 'Cheyava Falls', a rock that may hold signs of ancient life" },
+    ],
+    stats: [
+      { label: { ar: "الكتلة", en: "Mass" }, value: { ar: "١٬٠٢٥ كغ", en: "1,025 kg" } },
+      { label: { ar: "العجلات", en: "Wheels" }, value: { ar: "٦", en: "6" } },
+      { label: { ar: "الطاقة", en: "Power" }, value: { ar: "نووية", en: "Nuclear" } },
+      { label: { ar: "أنابيب العينات", en: "Sample tubes" }, value: { ar: "٤٣", en: "43" } },
+    ],
+    parts: [
+      {
+        id: "rtg",
+        mesh: "rtg",
+        icon: "⚛️",
+        name: { ar: "مولد الطاقة النووي (MMRTG)", en: "Nuclear Power Generator (MMRTG)" },
+        role: {
+          ar: "يحول حرارة البلوتونيوم إلى كهرباء، فتعمل المركبة ليلًا ونهارًا مثل كيوريوسيتي.",
+          en: "Turns heat from plutonium into electricity, so the rover works day and night — like Curiosity.",
+        },
+        funFact: {
+          ar: "تصميم المركبة مبني على كيوريوسيتي، لكنها أثقل وعجلاتها أقوى.",
+          en: "Its design is based on Curiosity, but it is heavier and has tougher wheels.",
+        },
+      },
+      {
+        id: "mast",
+        mesh: "mast",
+        icon: "🔴",
+        name: { ar: "رأس SuperCam وكاميرات Mastcam-Z", en: "SuperCam & Mastcam-Z" },
+        role: {
+          ar: "رأس على السارية فيه ليزر يحلل الصخور من بعيد، وكاميرات تقرّب الصورة وتصور بأبعاد ثلاثية.",
+          en: "A mast head with a laser that analyzes rocks from a distance, plus zoom cameras that see in 3D.",
+        },
+        funFact: {
+          ar: "في السارية ميكروفون سجّل أصوات الليزر وهو يضرب الصخور على المريخ.",
+          en: "A microphone on the mast recorded the sound of the laser hitting rocks on Mars.",
+        },
+      },
+      {
+        id: "arm",
+        mesh: "arm",
+        icon: "🧪",
+        name: { ar: "الذراع ومثقاب العينات", en: "Arm & Coring Drill" },
+        role: {
+          ar: "ذراع آلية في نهايتها مثقاب يقطع أسطوانة صغيرة من الصخر، ثم تُحفظ في أنبوب محكم داخل المركبة.",
+          en: "A robotic arm whose drill cuts a small rock core, which is then sealed in a tube inside the rover.",
+        },
+        funFact: {
+          ar: "تحمل المركبة ٤٣ أنبوبًا لحفظ العينات.",
+          en: "The rover carries 43 sample tubes.",
+        },
+      },
+    ],
+    mission: {
+      title: { ar: "مهمة: صياد العينات", en: "Mission: Sample Hunter" },
+      intro: {
+        ar: "أنت تقود أحدث مركبة على المريخ. قراراتك تحدد ما سيصل إلى مختبرات الأرض.",
+        en: "You are driving the newest rover on Mars. Your choices decide what reaches labs on Earth.",
+      },
+      steps: [
+        {
+          situation: {
+            ar: "وجدت صخرة فيها بقع غريبة قد تكون أثرًا لحياة قديمة. ماذا تفعل؟",
+            en: "You found a rock with strange spots that might be a trace of ancient life. What do you do?",
+          },
+          options: [
+            { text: { ar: "أحفر عينة وأحفظها في أنبوب محكم", en: "Drill a core and seal it in a tube" }, correct: true },
+            { text: { ar: "أكسرها بالعجلات لأرى داخلها", en: "Crush it with the wheels to look inside" }, correct: false },
+            { text: { ar: "أتجاهلها وأكمل الطريق", en: "Ignore it and keep driving" }, correct: false },
+          ],
+          explanation: {
+            ar: "هذا ما حدث مع صخرة \"شيافا فولز\" في ٢٠٢٤: المختبرات على الأرض أدق بكثير من أجهزة المركبة، فالعينة المحفوظة هي الحل.",
+            en: "That's what happened with 'Cheyava Falls' in 2024: labs on Earth are far more precise than rover instruments, so a sealed sample is the answer.",
+          },
+        },
+        {
+          situation: {
+            ar: "تريد معرفة شكل الأرض أمامك قبل أن تقود إليها. ما الذي يساعدك من الأعلى؟",
+            en: "You want to see the ground ahead before driving there. What can help from above?",
+          },
+          options: [
+            { text: { ar: "المروحية Ingenuity", en: "The Ingenuity helicopter" }, correct: true },
+            { text: { ar: "مولد الطاقة", en: "The power generator" }, correct: false },
+            { text: { ar: "أنابيب العينات", en: "The sample tubes" }, correct: false },
+          ],
+          explanation: {
+            ar: "طارت Ingenuity ٧٢ مرة وصوّرت الطريق من الجو، حتى تضررت شفرتها في يناير ٢٠٢٤.",
+            en: "Ingenuity flew 72 times, scouting from the air, until a blade was damaged in January 2024.",
+          },
+        },
+        {
+          situation: {
+            ar: "رواد الفضاء في المستقبل سيحتاجون أكسجين على المريخ. أي تجربة أثبتت أن هذا ممكن؟",
+            en: "Future astronauts will need oxygen on Mars. Which experiment proved it is possible?",
+          },
+          options: [
+            { text: { ar: "تجربة MOXIE", en: "The MOXIE experiment" }, correct: true },
+            { text: { ar: "الليزر في SuperCam", en: "The SuperCam laser" }, correct: false },
+            { text: { ar: "العجلات الست", en: "The six wheels" }, correct: false },
+          ],
+          explanation: {
+            ar: "في ٢٠ أبريل ٢٠٢١ صنعت MOXIE نحو ٥ غرامات أكسجين من ثاني أكسيد الكربون في هواء المريخ.",
+            en: "On 20 April 2021, MOXIE made about 5 grams of oxygen from the carbon dioxide in Mars' air.",
           },
         },
       ],

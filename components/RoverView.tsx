@@ -8,6 +8,8 @@ import { getRover } from "@/data/rovers";
 import { getPlanet } from "@/data/planets";
 import { loadProgress, markPartSeen } from "@/lib/progress";
 import ChatBot from "./ChatBot";
+import NasaGallery from "./NasaGallery";
+import LiveTraverseCard from "./LiveTraverseCard";
 import type { PartMesh } from "@/data/types";
 
 const RoverViewer = dynamic(() => import("./RoverViewer"), { ssr: false });
@@ -142,6 +144,10 @@ export default function RoverView({ roverId }: { roverId: string }) {
               </li>
             ))}
           </ul>
+
+          {rover.liveTraverse && <LiveTraverseCard planet={rover.planet} />}
+
+          <NasaGallery roverId={rover.id} accent={rover.accent} />
 
           <div className="glass mt-6 rounded-3xl p-5 text-center">
             <div className="text-3xl">🎯</div>
